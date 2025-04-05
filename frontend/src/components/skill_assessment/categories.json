@@ -1,0 +1,122 @@
+{
+    "Backend Development": [
+        "Node.js",
+        "Express.js",
+        "SQL",
+        "REST API Development",
+        "Django",
+        "Flask",
+        "GraphQL",
+        "PostgreSQL"
+    ],
+    "Data Analysis": [
+        "Excel",
+        "SQL",
+        "Data Cleaning",
+        "Power BI",
+        "Python (Pandas)",
+        "R",
+        "Tableau",
+        "Data Visualization"
+    ],
+    "Data Science": [
+        "Python",
+        "Machine Learning Basics",
+        "Data Wrangling",
+        "Data Visualization",
+        "SQL",
+        "Numpy",
+        "Pandas",
+        "Statistical Analysis"
+    ],
+    "Frontend Development": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Bootstrap",
+        "Sass",
+        "jQuery",
+        "Responsive Design"
+    ],
+    "Full Stack Development": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Node.js",
+        "React",
+        "MongoDB",
+        "Express.js",
+        "SQL"
+    ],
+    "Mobile Development": [
+        "Flutter",
+        "Dart",
+        "React Native",
+        "Swift (iOS)",
+        "Kotlin (Android)",
+        "Firebase",
+        "UI Design Principles",
+        "API Integration"
+    ],
+    "SEO": [
+        "Keyword Research",
+        "On-Page SEO",
+        "Content Writing",
+        "Link Building",
+        "Google Analytics",
+        "HTML/CSS Basics",
+        "SEO Tools (e.g., Ahrefs, SEMrush)",
+        "Social Media Optimization"
+    ],
+    "Software Development": [
+        "Python",
+        "Java",
+        "Version Control (Git)",
+        "Software Testing",
+        "Data Structures",
+        "Algorithms Basics",
+        "OOP Concepts",
+        "SQL"
+    ],
+    "Software Engineering": [
+        "Python",
+        "Java",
+        "System Design Basics",
+        "Version Control (Git)",
+        "Testing and Debugging",
+        "Data Structures",
+        "Agile Methodology",
+        "Algorithms Basics"
+    ],
+    "UI/UX Design": [
+        "Wireframing",
+        "Prototyping",
+        "User Research",
+        "Figma",
+        "Adobe XD",
+        "Information Architecture",
+        "User Testing",
+        "Interaction Design"
+    ],
+    "Web Design": [
+        "HTML",
+        "CSS",
+        "Responsive Design",
+        "JavaScript Basics",
+        "Wireframing",
+        "Bootstrap",
+        "Figma",
+        "Color Theory"
+    ],
+    "Web Development": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Responsive Design",
+        "APIs",
+        "Version Control (Git)"
+    ]
+}

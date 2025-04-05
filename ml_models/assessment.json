@@ -1,0 +1,101 @@
+{
+    "Web Development": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Angular",
+        "Vue.js",
+        "Svelte",
+        "Bootstrap",
+       "Tailwind CSS",
+        "Express.js",
+        "Django",
+        "Flask",
+        "spring boot",
+        "mySQL",
+        "MongoDB"
+ 
+    ],
+    "Frontend Development": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Vue.js",
+        "Angular",
+        "Bootstrap",
+        "TailwindCSS"
+    ],
+    "Backend Development": [
+        "Node.js",
+        "Express",
+        "Django",
+        "Flask",
+        "ASP.NET Core",
+        "Java"
+    ],
+    "Data Science": [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "Matplotlib"
+    ],
+    "Machine Learning": [
+        "TensorFlow",
+        "Keras",
+        "PyTorch",
+        "Scikit-learn"
+    ],
+    "Mobile Development": [
+        "Swift",
+        "Kotlin",
+        "Flutter",
+        "React Native"
+    ],
+    "Cloud Computing": [
+        "AWS",
+        "Azure",
+        "Google Cloud",
+        "Docker",
+        "Kubernetes"
+    ],
+    "Cybersecurity": [
+        "Firewalls",
+        "Intrusion Detection Systems",
+        "Encryption",
+        "Penetration Testing"
+    ],
+    "Game Development": [
+        "Unity",
+        "Unreal Engine",
+        "C#",
+        "C++"
+    ],
+    "DevOps": [
+        "Jenkins",
+        "Git",
+        "Ansible",
+        "Terraform"
+    ],
+    "Blockchain": [
+        "Ethereum",
+        "Hyperledger",
+        "Solidity",
+        "Cryptography"
+    ],
+    "UI/UX Design": [
+        "Figma",
+        "Adobe XD",
+        "Sketch",
+        "InVision"
+    ],
+    "Artificial Intelligence": [
+        "Natural Language Processing",
+        "Computer Vision",
+        "Reinforcement Learning",
+        "Deep Learning"
+    ]
+}
