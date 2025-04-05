@@ -3,6 +3,7 @@ import React from "react";
 import Logo from "./Logo";
 import { Link, useNavigate } from 'react-router-dom'
 // import { useSelector } from 'react-redux'
+import config from "../../config";
 
 function Navbar() {
 
@@ -22,7 +23,7 @@ function Navbar() {
       // Make a request to the server to log out
       const authToken = localStorage.getItem('authToken');
       localStorage.removeItem('authToken');
-      const response = await fetch('http://127.0.0.1:8000/api/logout/', {
+      const response = await fetch(`${config.apiUrl}/api/logout/`, {
         method: 'POST',
         headers: {
           'Authorization': `Token ${authToken}`,

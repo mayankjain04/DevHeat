@@ -23,6 +23,7 @@ from mymodels import assessment_model
 
 YT_API_KEY = os.environ.get("YT_API_KEY")
 ADZUNA_API_KEY = os.environ.get("ADZUNA_API_KEY")
+TIMEOUT = 5
 
 class RegisterView(APIView):
     def post(self, request):
@@ -141,7 +142,7 @@ class FindJobsView(APIView):
         try:
             start_time = time.time()
 
-            external_response = requests.get(encoded_url, timeout=2)  # 5 second timeout
+            external_response = requests.get(encoded_url, timeout=TIMEOUT)  # 5 second timeout
             external_response.raise_for_status()
 
             elapsed = time.time() - start_time
@@ -195,7 +196,7 @@ class FindPlaylist(APIView):
 
         start_time = time.time()
         try:
-            external_response = requests.get(url, timeout=2)
+            external_response = requests.get(url, timeout=TIMEOUT)
             external_response.raise_for_status()
             elapsed = round(time.time() - start_time, 2)
             print(f"YouTube API response time: {elapsed} seconds")
