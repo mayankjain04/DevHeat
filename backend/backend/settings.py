@@ -39,7 +39,11 @@ ALLOWED_HOSTS = [
     "localhost:3000",     # optional if requests come with port
     "[::1]",              # IPv6 localhost
     "https://dev-heat.vercel.app",
+<<<<<<< HEAD
     "devheat.onrender.com"
+=======
+    "dev-heat.onrender.com"
+>>>>>>> 57d1675c7715c435a01246fae1d8e5c0df8509f6
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  # Allow the frontend to connect to backend
