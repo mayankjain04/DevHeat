@@ -52,7 +52,7 @@ function SkillAssessment() {
   };
 
   return (
-    <div className="bg-[#F7F7F7] pt-32 pb-10 sm:px-20 px-10">
+    <div className="bg-[#F7F7F7] pt-32 pb-10 sm:px-20 px-2">
       <div className="mb-6 flex items-center">
         <ClipboardList className="w-10 h-9 text-[#18BED4]" />
         <h2 className="text-3xl font-bold text-[#1F2833]">Skill Assessment</h2>
