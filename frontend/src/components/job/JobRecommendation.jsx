@@ -98,7 +98,8 @@ function JobRecommendation() {
     if (error) {
         return (
             <div className="bg-[#F7F7F7] text-red-500 font-bold text-5xl px-20 py-28 w-full h-[100vh] flex justify-center items-center">
-                <span className="text-3xl">{error}</span>
+                <span className="text-xl text-slate-900 w-max text-center">An error occured</span>
+                <span className="text-sm text-slate-600 w-max text-center">{error}</span>
             </div>
         );
     }
