@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: careerquest
+    env: python
+    plan: free  # or 'starter', 'standard', etc.
+    region: oregon  # or frankfurt, ohio...
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn backend.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.settings
+      # other keys will be added manually on Render

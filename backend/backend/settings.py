@@ -38,7 +38,8 @@ ALLOWED_HOSTS = [
     "0.0.0.0",            # if you're using Docker or another dev server
     "localhost:3000",     # optional if requests come with port
     "[::1]",              # IPv6 localhost
-    "https://careerquest.vercel.app"
+    "https://dev-heat.vercel.app",
+    "dev-heat.onrender.com"
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  # Allow the frontend to connect to backend
