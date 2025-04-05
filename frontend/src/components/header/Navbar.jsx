@@ -1,26 +1,23 @@
 import { useState } from "react";
 import React from "react";
 import Logo from "./Logo";
-import { Link, useNavigate } from 'react-router-dom'
-// import { useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom';
 import config from "../../config";
 
 function Navbar() {
-
-  // const authStatus = useSelector((state) => state.auth.status)
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [authToken, setAuthToken] = useState(localStorage.getItem('authToken'));
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
     { name: 'Find Jobs', url: "/job", active: true },
-    // { name: "About us", url: "/aboutus", active: true },
-    { name: "Learning Resources", url: "/learn", active: true },
-    { name: "Dashboard", url: "/dashboard", active: authToken },
+    { name: 'Learning Resources', url: "/learn", active: true },
+    { name: 'About', url: "/about", active: true }, // ← Restored about link
+    { name: 'Dashboard', url: "/dashboard", active: authToken },
   ];
-
+  
   const handleLogout = async () => {
     try {
-      // Make a request to the server to log out
       const authToken = localStorage.getItem('authToken');
       localStorage.removeItem('authToken');
       const response = await fetch(`${config.apiUrl}/api/logout/`, {
@@ -31,9 +28,7 @@ function Navbar() {
         },
       });
 
-      // Check for a successful response
       if (response.ok) {
-        // Remove the token from localStorage and reset state
         localStorage.removeItem('authToken');
         setAuthToken('');
         console.log('Logged out successfully');
@@ -44,97 +39,72 @@ function Navbar() {
     } catch (error) {
       console.error('Error logging out:', error);
     }
-  }
-
-  const troubleshoot = () => {
-    localStorage.clear();
-    navigate('/');
-  }
+  };
 
   return (
     <header className='w-full top-0 left-0 right-0 bg-white fixed z-50 shadow-sm'>
-      <nav className='flex justify-between items-center py-7 px-20'>
+      <nav className='flex flex-wrap items-center justify-between py-5 px-6 md:px-20'>
         <Link to={"/"} className='mr-4'>
           <Logo />
         </Link>
-        <ul className='flex'>
-          {/* <li>
-            <button className='nav-items bg-transparent mr-24 text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group'
-              onClick={() => {
-                if (authToken && authToken.length > 0) {
-                  navigate("/job"); 
-                } else {
-                  navigate("/login"); // Replace with an alternate route for unauthorized users
-                }
-              }}
-            >Find Jobs
-              <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div>
-            </button>
-          </li>
-          <li>
-            <button className='nav-items bg-transparent mr-24 text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group'
-              onClick={() => navigate("/#")}
-            >About us
-              <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div></button>
-          </li>
-          <li>
-            <button className='nav-items bg-transparent mr-24 text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group'
-              onClick={() => navigate("/#")}
-            >Learning Resources
-              <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div></button>
-          </li> */}
+        <button 
+          className='md:hidden text-[#1F2833] focus:outline-none'
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <svg
+            className='w-6 h-6'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
+          </svg>
+        </button>
+        <ul className={`flex-col md:flex-row md:flex md:items-center w-full md:w-auto mt-4 md:mt-0 ${menuOpen ? 'flex' : 'hidden'}`}>
           {navItems.map((item) => item.active ? (
-            <li key={item.name}>
+            <li key={item.name} className='mb-4 md:mb-0 md:mr-6'>
               <button
-                onClick={() => navigate(item.url)}
-                className='nav-items bg-transparent mr-24 text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group'
-              >{item.name}
-                <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div>
+                onClick={() => { setMenuOpen(false); navigate(item.url); }}
+                className='nav-items bg-transparent text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group w-full text-left'
+              >
+                {item.name}
+                <div className="w-full h-[1.5px] bg-[#ffffff] group-hover:bg-[#18BED4] transition-colors duration-200"></div>
               </button>
             </li>
-          ) : null
-          )}
-          {/* <>
-            <li>
-              <button className='nav-items bg-transparent mr-24 text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group'
-                onClick={troubleshoot}
-              >Troubleshoot
-                <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div>
-              </button>
-            </li>
-          </> */}
+          ) : null)}
+
           {authToken && authToken.length > 0 ? (
+            <li className='mb-4 md:mb-0 md:mr-6'>
+              <button className='nav-items bg-transparent text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group w-full text-left'
+                onClick={() => { setMenuOpen(false); handleLogout(); }}
+              >
+                Log Out
+                <div className="w-full h-[1.5px] bg-[#ffffff] group-hover:bg-[#18BED4] transition-colors duration-200"></div>
+              </button>
+            </li>
+          ) : (
             <>
-              <li>
-                <button className='nav-items bg-transparent mr-24 text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group'
-                  onClick={handleLogout}
-                >Log Out
-                  <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div>
+              <li className='mb-4 md:mb-0 md:mr-6'>
+                <button className='nav-items bg-transparent text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group w-full text-left'
+                  onClick={() => { setMenuOpen(false); navigate("/login"); }}
+                >
+                  Log In
+                  <div className="w-full h-[1.5px] bg-[#ffffff] group-hover:bg-[#18BED4] transition-colors duration-200"></div>
+                </button>
+              </li>
+              <li className='md:mr-0'>
+                <button className='nav-items bg-transparent text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group w-full text-left'
+                  onClick={() => { setMenuOpen(false); navigate("/signup"); }}
+                >
+                  Sign up
+                  <div className="w-full h-[1.5px] bg-[#ffffff] group-hover:bg-[#18BED4] transition-colors duration-200"></div>
                 </button>
               </li>
             </>
-          ) : (
-            <>
-              <li>
-                <button className='nav-items bg-transparent mr-24 text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group'
-                  onClick={() => navigate("/login")}
-                >Log In
-                  <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div></button>
-              </li>
-              <li>
-                <button className='nav-items bg-transparent text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group'
-                  onClick={() => navigate("/signup")}
-                >Sign up
-                  <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div></button>
-              </li>
-            </>
           )}
-
         </ul>
       </nav>
-      {/* <div className="w-full flex justify-center">
-        <div className="h-[2px] bg-[#D9D9D9] w-[92%]"></div>
-      </div> */}
     </header>
   );
 }
