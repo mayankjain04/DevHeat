@@ -188,7 +188,7 @@ class FindPlaylist(APIView):
         url = (
             f"https://www.googleapis.com/youtube/v3/search"
             f"?part=snippet&q={query}&type=playlist"
-            f"&maxResults=8&order=relevance&relevanceLanguage={language}"
+            f"&maxResults=16&order=relevance&relevanceLanguage={language}"
             f"&key={YT_API_KEY}"
         )
         if page_token:
