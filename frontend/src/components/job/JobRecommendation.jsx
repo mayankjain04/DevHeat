@@ -139,7 +139,7 @@ function JobRecommendation() {
                     <option value="date">Date</option>
                     <option value="salary">Salary</option>
                 </select>
-                <button onClick={handleSearchClick} className="py-2 pr-4 pl-3 font-semibold bg-[#18BED4] text-white hover:bg-[#15a8bc] hover:scale-[1.02] transition-all duration-200 rounded-lg flex">
+                <button onClick={handleSearchClick} className="py-2 pr-4 pl-3 font-semibold bg-[#1F2833] text-white hover:bg-[#4a5159] transition-all duration-200 rounded-md flex">
                     <Search className="mr-2 w-7" />
                     Search
                 </button>
