@@ -14,22 +14,20 @@ function HeroSection() {
                     px-6 sm:px-10 md:px-16 lg:px-20 py-16 sm:py-20 md:py-28 lg:py-36 gap-10">
 
       {/* Text Section */}
-      <div className="w-full lg:w-1/2 text-start mt-10 lg:mt-14 mb-10">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl text-[#1F2833] main-text font-bold mb-7 leading-tight">
+      <div className="w-full lg:w-1/2 text-center sm:text-start mt-10 lg:mt-14 mb-10">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl text-[#1F2833] main-text font-bold mb-7 leading-tight">
           Take Charge of Your
           <br />
           <span className="font-black text-[#18BED4]">Career Journey</span>
         </h1>
         <div>
-          <p className="text-base sm:text-lg text-gray-600 leading-relaxed sub-text">
-            Transform your ambitions into real opportunities. Discover your
-            strengths, enhance your skills, and prepare for a rewarding career
-            with our expert guidance.
+          <p className="text-md sm:text-lg text-gray-600 leading-relaxed sub-text">
+            Transform your ambitions into real opportunities. Discover your strengths, enhance your skills, and prepare for a rewarding career with our expert guidance.
           </p>
         </div>
         <div className="mt-6">
           <button
-            className="group flex items-center gap-2 bg-[#18BED4] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg 
+            className="group w-full sm:w-48 flex justify-center items-center gap-2 bg-[#18BED4] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md sm:rounded-lg 
               text-base sm:text-lg font-semibold hover:bg-[#15a8bc] transition-all transform hover:translate-x-1 shadow-lg"
             onClick={() => navigate("/signup")}
           >

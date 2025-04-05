@@ -49,7 +49,7 @@ function GithubAnalyser() {
     };
 
   return (
-    <div className="bg-white rounded-xl w-full shadow-lg p-6">
+    <div className="bg-white rounded-md sm:rounded-xl w-full shadow-lg p-6">
       <div className="text-center mb-4">
         <h2 className="text-[#1F2833] mb-2 flex items-center text-start text-xl font-bold profile-text">
           <Github className="w-5 h-5 mr-2" />
@@ -57,8 +57,8 @@ function GithubAnalyser() {
           <div className='h-[1px] bg-gray-200 w-full rounded'></div>
       </div>
 
-      <form onSubmit={handleSubmit(getUserInfo)} className="flex gap-2 mb-4">
-        <div className="relative flex-1">
+      <form onSubmit={handleSubmit(getUserInfo)} className="flex flex-col sm:flex-row gap-2 mb-4">
+        <div className="relative sm:flex-1">
           <input
             type="text"
             {...register("username")}
@@ -69,7 +69,7 @@ function GithubAnalyser() {
         <button
           type="submit"
           disabled={loader}
-          className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 flex items-center gap-2"
+          className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 flex justify-center items-center gap-2"
         >
           {loader ? (
             <Loader2 className="w-5 h-5 animate-spin" />

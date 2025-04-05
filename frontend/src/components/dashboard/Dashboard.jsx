@@ -68,17 +68,17 @@ function Dashboard() {
 
 
   return (
-    <div className='py-40 px-32 bg-[#f7f7f7] grid grid-cols-3 gap-3'>
+    <div className='pt-20 sm:pt-24 pb-6 sm:pb-10 px-5 sm:px-32 bg-[#f7f7f7] grid grid-cols-1 sm:grid-cols-3 gap-3'>
       <div className='col-span-1'>
         <UserProfile apiUrl={config.apiUrl} username={userData.user.username} email={userData.user.email} domain={userData.domain} experience={userData.experience} level={userData.predicted_proficiency} />
       </div>
-      <div className='col-span-2 row-span-2'>
+      <div className='col-span-1 sm:col-span-2 sm:row-span-2'>
         <SkillsChart apiUrl={config.apiUrl} userData={userData}/>
       </div>
       <div className='col-span-1 w-full'>
         <UserJobRecommendation apiUrl={config.apiUrl} job1={userData.predicted_job_role} match={userData.predicted_average_score} domain={userData.domain} />
       </div>
-      <div className='col-span-3 w-full'>
+      <div className='col-span-1 sm:col-span-3 w-full'>
         <GithubAnalyser/>
       </div>
       
