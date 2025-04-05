@@ -21,7 +21,7 @@ sys.path.append(os.path.join(root_dir, 'ml_models'))
 # Now we can import from ml_models
 from mymodels import assessment_model
 
-api_key = os.environ.get("YT_API_KEY")
+YT_API_KEY = os.environ.get("YT_API_KEY")
 ADZUNA_API_KEY = os.environ.get("ADZUNA_API_KEY")
 
 class RegisterView(APIView):
@@ -126,7 +126,7 @@ class FindJobsView(APIView):
 
         params = {
             "app_id": "5aaf8801",
-            "app_key": f"${ADZUNA_API_KEY}",
+            "app_key": f"{ADZUNA_API_KEY}",
             "results_per_page": 6,
             "what": what,
             "where": where,
@@ -188,14 +188,14 @@ class FindPlaylist(APIView):
             f"https://www.googleapis.com/youtube/v3/search"
             f"?part=snippet&q={query}&type=playlist"
             f"&maxResults=8&order=relevance&relevanceLanguage={language}"
-            f"&key=${api_key}"
+            f"&key={YT_API_KEY}"
         )
         if page_token:
             url += f"&pageToken={page_token}"
 
         start_time = time.time()
         try:
-            external_response = requests.get(url, timeout=1)
+            external_response = requests.get(url, timeout=2)
             external_response.raise_for_status()
             elapsed = round(time.time() - start_time, 2)
             print(f"YouTube API response time: {elapsed} seconds")
