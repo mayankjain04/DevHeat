@@ -3,6 +3,7 @@ import UserProfile from './UserProfile'
 import UserJobRecommendation from './UserJobRecommendation'
 import SkillRating from './SkillRating'
 import SkillsChart from './SkillBarChart'
+import GithubAnalyser from "../analyser/GithubAnalyser"
 
 import config from "../../config";
 
@@ -67,11 +68,22 @@ function Dashboard() {
 
 
   return (
-    <div className='py-40 px-32'>
-      <UserProfile apiUrl={config.apiUrl} username={userData.user.username} email={userData.user.email} domain={userData.domain} experience={userData.experience} level={userData.predicted_proficiency} />
-      <UserJobRecommendation apiUrl={config.apiUrl} job1={userData.predicted_job_role} match={userData.predicted_average_score} domain={userData.domain} />
+    <div className='py-40 px-32 bg-[#f7f7f7] grid grid-cols-3 gap-3'>
+      <div className='col-span-1'>
+        <UserProfile apiUrl={config.apiUrl} username={userData.user.username} email={userData.user.email} domain={userData.domain} experience={userData.experience} level={userData.predicted_proficiency} />
+      </div>
+      <div className='col-span-2 row-span-2'>
+        <SkillsChart apiUrl={config.apiUrl} userData={userData}/>
+      </div>
+      <div className='col-span-1 w-full'>
+        <UserJobRecommendation apiUrl={config.apiUrl} job1={userData.predicted_job_role} match={userData.predicted_average_score} domain={userData.domain} />
+      </div>
+      <div className='col-span-3 w-full'>
+        <GithubAnalyser/>
+      </div>
+      
       {/* <SkillRating apiUrl={config.apiUrl} userData={userData}/> */}
-      <SkillsChart apiUrl={config.apiUrl} userData={userData}/>
+      
     </div>
   )
 }

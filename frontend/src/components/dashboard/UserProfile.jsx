@@ -1,49 +1,47 @@
-import { Award, BadgeCheckIcon, Briefcase, Mail } from "lucide-react";
+import { MapPin, Calendar, Mail, User } from "lucide-react";
 import React from "react";
 
 
 function UserProfile({ username, email, domain, experience, level}) {
   return (
     <div className="w-full max-w-md bg-white rounded-2xl shadow-lg overflow-hidden">
-      <div className="h-32 bg-gradient-to-r from-[#18BED4] to-[#14a8bc]"></div>
-      <div className="relative px-6 pb-6">
-        {/* Profile Image ki functionality nhi pata :( */}
-        <div className="absolute -top-16 left-6">
-          <img
-            src="https://i.pinimg.com/474x/76/4d/59/764d59d32f61f0f91dec8c442ab052c5.jpg"
-            alt="Profile"
-            className="w-32 h-32 rounded-full border-4 border-white text-black shadow-md object-cover"
-          />
-        </div>
+      <div className="bg-white rounded-xl shadow-lg p-6">
+          <div className="space-y-4">
+            <div className="flex items-center space-x-3 pb-4 border-b border-gray-200">
+              <div className="bg-blue-100 p-3 rounded-lg">
+                <User className="w-6 h-6 text-blue-600" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 text-start">{username}</h2>
+                <p className="text-gray-600">{domain}</p>
+              </div>
+            </div>
+            
+            <div className="space-y-3">
+              <div className="flex items-center text-gray-600">
+                <Mail className="w-4 h-4 mr-3" />
+                <span>{email}</span>
+              </div>
+              <div className="flex items-center text-gray-600">
+                <MapPin className="w-4 h-4 mr-3" />
+                <span>NaN</span>
+              </div>
+              <div className="flex items-center text-gray-600">
+                <Calendar className="w-4 h-4 mr-3" />
+                <span>Joined April 2025</span>
+              </div>
+            </div>
 
-        <div className="pt-20">
-          <div className="flex justify-between items-center">
-            <div className="flex-col text-start">
-              <h1 className="text-2xl font-bold text-gray-900">{username}</h1>
-              <p className="text-[#18BED4] font-medium"> {domain}</p>
-            </div>
-            <BadgeCheckIcon className="text-[#18BED4]"/>
-          </div>
-          {/* Bio ke liye */}
-          {/* <p className="mt-4 text-gray-600 text-start">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, id! Architecto laboriosam commodi perspiciatis obcaecati sed quidem
-          </p> */}
-          <div className="mt-4 space-y-2">
-            <div className="flex items-center text-gray-600">
-              <Mail className="w-4 h-4 mr-2 text-[#18BED4]" />
-              <span>Email : {email}</span>
-            </div>
-            <div className="flex items-center text-gray-600">
-              <Briefcase className="w-4 h-4 mr-2 text-[#18BED4]"/>
-              <span>Expirence : {experience} years</span>
-            </div>
-            <div className="flex items-center text-gray-600">
-              <Award className="w-4 h-4 mr-2 text-[#18BED4]"/>
-              <span>Expected Level : {level}</span>
+            <div className="flex flex-wrap gap-2 pt-4">
+              <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+                {experience[0] !== "0" ? `${experience} Years Experience` : "Fresher"}
+              </span>
+              <span className="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">
+                {level}
+              </span>
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }

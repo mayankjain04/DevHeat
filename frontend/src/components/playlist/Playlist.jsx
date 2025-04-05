@@ -103,7 +103,7 @@ function Playlist() {
                 />
                 <button
                     onClick={handleSearch}
-                    className="bg-[#1F2833] text-white px-5 py-3 rounded-md font-semibold w-full sm:w-auto"
+                    className="bg-[#1F2833] hover:bg-[#4a5159] text-white px-5 py-3 rounded-md font-semibold"
                 >
                     Search
                 </button>
