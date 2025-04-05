@@ -7,3 +7,4 @@ scikit-learn
 django-cors-headers
 requests
 python-decouple
+gunicorn

@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECRET_KEY = 'django-insecure-##1s0qsv$@h3^i=il!4%k71#-fmll@!l1(8xi2qh4=ro-h()xq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = [
     "localhost",
@@ -38,7 +38,8 @@ ALLOWED_HOSTS = [
     "0.0.0.0",            # if you're using Docker or another dev server
     "localhost:3000",     # optional if requests come with port
     "[::1]",              # IPv6 localhost
-    "https://careerquest.vercel.app"
+    "https://dev-heat.vercel.app",
+    "devheat.onrender.com"
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  # Allow the frontend to connect to backend
