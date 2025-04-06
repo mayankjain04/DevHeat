@@ -6,18 +6,21 @@ import config from "../../config";
 
 import { useContext } from 'react';
 import { AuthContext } from '../../authcontext';
-
+import {useDispatch, useSelector} from 'react-redux';
+import { logout } from "../../store/authSlice";
 
 function Navbar() {
   const navigate = useNavigate();
   const { authToken, setAuthToken } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
+  const dispatch = useDispatch()
+  const status = useSelector(state => state.auth.status)
 
   const navItems = [
     { name: 'Find Jobs', url: "/job", active: true },
     { name: 'Learning Resources', url: "/learn", active: true },
     { name: 'About', url: "/about", active: true }, 
-    { name: 'Dashboard', url: "/dashboard", active: authToken },
+    { name: 'Dashboard', url: "/dashboard", active: status },
   ];
   
   const handleLogout = async () => {
@@ -34,6 +37,7 @@ function Navbar() {
 
       if (response.ok) {
         localStorage.removeItem('authToken');
+        dispatch(logout())
         setAuthToken('');
         console.log('Logged out successfully');
         navigate('/');
@@ -79,7 +83,7 @@ function Navbar() {
             </li>
           ) : null)}
 
-          {authToken && authToken.length > 0 ? (
+          {status ? (
             <li className='mb-4 md:mb-0 md:mr-6'>
               <button className='nav-items bg-transparent text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group w-full text-left'
                 onClick={() => { setMenuOpen(false); handleLogout(); }}
