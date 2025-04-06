@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import PlaylistCard from "./PlaylistCard";
 import config from "../../config";
 
+import { useContext } from 'react';
+import { AuthContext } from '../../authcontext';
+
 function Playlist() {
     const [playlists, setPlaylists] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -10,7 +13,7 @@ function Playlist() {
     const [pageToken, setPageToken] = useState(null);
     const [nextPageToken, setNextPageToken] = useState(null);
     const [language, setLanguage] = useState('en');
-    const authToken = localStorage.getItem('authToken');
+    const { authToken } = useContext(AuthContext)
     const searchInputRef = useRef();
 
     if (!authToken) {
@@ -84,8 +87,9 @@ function Playlist() {
 
     if (error) {
         return (
-            <div className="bg-[#F7F7F7] text-red-500 font-bold text-5xl px-6 py-28 w-full h-[100vh] flex justify-center items-center text-center">
-                <span className="text-3xl">{error}</span>
+            <div className="bg-[#F7F7F7] text-red-500 px-4 py-28 w-full h-screen flex flex-col items-center justify-center text-center">
+                <span className="text-xl font-bold text-slate-900">An error occurred</span>
+                <span className="text-sm text-slate-600">{error}</span>
             </div>
         );
     }

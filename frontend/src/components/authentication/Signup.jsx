@@ -7,12 +7,16 @@ import { login } from '../../store/authSlice';
 
 import config from "../../config";
 
+import { useContext } from 'react';
+import { AuthContext } from '../../authcontext'; 
+
 function Signup() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const { setAuthToken } = useContext(AuthContext);
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -28,12 +32,13 @@ function Signup() {
         if (response.ok) {
             const data = await response.json();
             console.log('Registration Successful:', data);
-            localStorage.setItem('authToken', data.token);
+            setAuthToken(data.token)
             dispatch(login(data));
             navigate("/skill-assessment");
         } else {
             const errorData = await response.json();
             console.error('Registration Failed:', errorData);
+            alert('Registration Failed, contact support.')
         }
     };
 

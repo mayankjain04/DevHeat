@@ -6,11 +6,15 @@ import SkillsChart from './SkillBarChart'
 import GithubAnalyser from "../analyser/GithubAnalyser"
 
 import config from "../../config";
+import { useContext } from 'react';
+import { AuthContext } from '../../authcontext';
+
 
 function Dashboard() {
   const [userData, setUserData] = useState(null);
   const [loaded, setLoaded] = useState(false);
-  const [authToken, setAuthToken] = useState(localStorage.getItem('authToken'));
+  const { authToken } = useContext(AuthContext);
+  console.log(authToken)
 
   useEffect(() => {
     // Fetch user data from the API
@@ -56,12 +60,8 @@ function Dashboard() {
 
   if (loaded == false) {
     return (
-      <div>
-        <div className="bg-[#F7F7F7] text-[#1F2833] font-bold text-5xl px-20 py-28 w-full h-[100vh] flex justify-center items-center">
-          Loading dashboard... 
-          <br /><hr />
-          <small>Are you sure you are connected to the backend?</small>
-        </div>
+      <div className="bg-[#F7F7F7] text-red-500 px-4 py-28 w-full h-screen flex flex-col items-center justify-center text-center">
+        <span className="text-xl font-bold text-slate-900">Loading...</span>
       </div>
     )
   }

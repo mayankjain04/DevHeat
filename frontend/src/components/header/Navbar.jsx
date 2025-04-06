@@ -4,15 +4,19 @@ import Logo from "./Logo";
 import { Link, useNavigate } from 'react-router-dom';
 import config from "../../config";
 
+import { useContext } from 'react';
+import { AuthContext } from '../../authcontext';
+
+
 function Navbar() {
   const navigate = useNavigate();
-  const [authToken, setAuthToken] = useState(localStorage.getItem('authToken'));
+  const { authToken, setAuthToken } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
     { name: 'Find Jobs', url: "/job", active: true },
     { name: 'Learning Resources', url: "/learn", active: true },
-    { name: 'About', url: "/about", active: true }, // ← Restored about link
+    { name: 'About', url: "/about", active: true }, 
     { name: 'Dashboard', url: "/dashboard", active: authToken },
   ];
   

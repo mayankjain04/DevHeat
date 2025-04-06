@@ -7,6 +7,8 @@ import Experience from "./Experience";
 import { Navigate, useNavigate } from "react-router-dom";
 
 import config from "../../config";
+import { useContext } from 'react';
+import { AuthContext } from '../../authcontext';
 
 
 function SkillAssessment() {
@@ -14,6 +16,7 @@ function SkillAssessment() {
   const [experience, setExperience] = useState(0); // Experience state
   const [skills, setSkills] = useState(Array(8).fill(0)); // Array to store skill values
   const Navigate = useNavigate()
+  const { authToken } = useContext(AuthContext)
 
   const handleSkillChange = (index, value) => {
     const updatedSkills = [...skills];
@@ -38,14 +41,14 @@ function SkillAssessment() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Token ${localStorage.getItem('authToken')}`,
+          Authorization: `Token ${authToken}`,
         },
         body: JSON.stringify(payload),
       });
 
       const result = await response.json();
       console.log("Response:", result);
-      Navigate('/');
+      Navigate('/dashboard');
     } catch (error) {
       console.error("Error submitting form:", error);
     }

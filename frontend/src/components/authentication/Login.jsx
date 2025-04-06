@@ -5,6 +5,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/authSlice';
 
+import { useContext } from 'react';
+import { AuthContext } from '../../authcontext'; 
+
 import config from "../../config";
 import { isAllOf } from "@reduxjs/toolkit";
 
@@ -13,6 +16,7 @@ function Login() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const { setAuthToken } = useContext(AuthContext);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -27,7 +31,7 @@ function Login() {
 
         if (response.ok) {
             const data = await response.json();
-            localStorage.setItem('authToken', data.token);
+            setAuthToken(data.token)
             console.log('Login Successful:', data);
             dispatch(login(data));
             navigate("/dashboard");

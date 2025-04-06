@@ -5,11 +5,14 @@ import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons
 import { Search } from "lucide-react";
 import config from "../../config";
 
+import { useContext } from 'react';
+import { AuthContext } from '../../authcontext';
+
 function JobRecommendation() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [authToken] = useState(localStorage.getItem("authToken"));
+  const { authToken } = useContext(AuthContext)
 
   const [sortBy, setSortBy] = useState("relevance");
   const [location, setLocation] = useState("");
