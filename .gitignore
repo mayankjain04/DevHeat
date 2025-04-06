@@ -4,6 +4,7 @@
 node_modules
 *.pkl
 .env
+db.sqlite3
 
 # api data
 api.txt

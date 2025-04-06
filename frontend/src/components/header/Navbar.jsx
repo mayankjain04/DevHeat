@@ -35,6 +35,7 @@ function Navbar() {
         navigate('/');
       } else {
         console.error('Logout failed:', response.statusText);
+        navigate('/');
       }
     } catch (error) {
       console.error('Error logging out:', error);

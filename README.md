@@ -14,7 +14,9 @@ CareerQuest is an AI-driven platform designed to simplify career selection. It a
 
 ## 📸 Images/Demo
 ### Home Page
-![Home Page](./frontend/public/CQ_HomePage.png)  
+![Home Page](./frontend/public/CQ_HomePage.png) 
+### Dashboard
+![Learning Resources](./frontend/public/CQ_Dashboard.png)   
 ### Skill Assessment
 ![Skill Assessment Feature](./frontend/public/CQ_SkillAssisment.png)  
 ### Learning Resources

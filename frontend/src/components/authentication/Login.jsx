@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { login } from '../../store/authSlice';
 
 import config from "../../config";
+import { isAllOf } from "@reduxjs/toolkit";
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -30,9 +31,18 @@ function Login() {
             console.log('Login Successful:', data);
             dispatch(login(data));
             navigate("/dashboard");
+        } else if (response.status==502) {
+            const errorData = await response.json();
+            console.error('Login Failed:', errorData);
+            alert('Server is down, please try after some time.')
+        } else if (response.status==400) {
+            const errorData = await response.json();
+            console.error('Login Failed:', errorData);
+            alert('Invalid Credentials')
         } else {
             const errorData = await response.json();
             console.error('Login Failed:', errorData);
+            alert('Unable to login, please contact support.')
         }
     };
 
