@@ -31,7 +31,7 @@ function GithubAnalyser() {
       const prompt = `
       You are an AI expert in developer career guidance. Based on the following GitHub user data, analyze their current developer profile and suggest areas where they can improve or grow. Use the "bio", "public_repos", and any other available fields to determine their skillset. 
       
-      Then, provide personalized, practical suggestions — for example, if the user mentions HTML, CSS, and JavaScript, recommend modern frontend frameworks like React or Tailwind CSS. If the user mentions Python, recommend Django or AI/ML tools. You can also mention contributing to open source, content creation, or other skill-building strategies based on their profile.
+      Then, provide personalized, practical suggestions — for example, if the user mentions HTML, CSS, and JavaScript, recommend modern frontend frameworks. If the user mentions Python, recommend python based stacks or AI/ML tools. You can also mention contributing to open source, content creation, or other skill-building strategies based on their profile.
       
       Respond with a JSON with Keys:
       analysis: (short summary of what you see about the user arround in 20 words)

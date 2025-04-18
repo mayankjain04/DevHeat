@@ -10,7 +10,7 @@ urlpatterns = [
 
     # ml models
     path('assessment/', AssessmentView.as_view(), name='assessment'),
-    # path('nextskill/', NextSkillView.as_view(), name='Next_skill'),
+    path('nextskill/', NextSkillView.as_view(), name='Next_skill'),
 
     # APIs
     path('jobs/', FindJobsView.as_view(), name='find_jobs'),

@@ -4,7 +4,7 @@ import "./profile.css";
 
 function UserJobRecommendation({job1, domain, match}) {
   return (
-    <div className="w-full px-7 py-5 max-w-md bg-white rounded-md sm:rounded-xl shadow-lg overflow-hidden">
+    <div className="w-full px-7 py-5 bg-white rounded-md sm:rounded-xl shadow-lg overflow-hidden">
       <div className=''>
         <div>
           <h1 className='text-[#1F2833] mb-2 text-start text-xl font-bold profile-text'>Recommended Job Role</h1>

@@ -150,7 +150,7 @@ function JobRecommendation() {
       </div>
 
       {/* Jobs Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:mx-4 gap-6">
         {jobs.map((job) => (
           <a
             href={job.redirect_url}
@@ -165,8 +165,8 @@ function JobRecommendation() {
               salaryMax={job.salary_max}
               company={job.company?.display_name || "Unknown"}
               jobdesc={
-                job.description.length > 200
-                  ? `${job.description.substring(0, 197)}...`
+                job.description.length > 400
+                  ? `${job.description.substring(0, 397)}...`
                   : job.description
               }
             />

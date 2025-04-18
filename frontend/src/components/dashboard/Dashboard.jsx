@@ -1,7 +1,7 @@
 import React, { useDebugValue, useEffect, useState } from 'react'
 import UserProfile from './UserProfile'
 import UserJobRecommendation from './UserJobRecommendation'
-import SkillRating from './SkillRating'
+import SkillQuestBoard from '../SkillQuestBoard/SkillQuestBoard'
 import SkillsChart from './SkillBarChart'
 import GithubAnalyser from "../analyser/GithubAnalyser"
 
@@ -66,24 +66,42 @@ function Dashboard() {
     )
   }
 
+  const learningSkills = [
+    {
+      name: 'React',
+      icon: '⚛️',
+      level: 2,
+      xp: 60,
+      maxXp: 100,
+      tagline: 'Master React to wield the DOM with ease!',
+    },
+    {
+      name: 'Node.js',
+      icon: '🛠️',
+      level: 1,
+      xp: 30,
+      maxXp: 80,
+      tagline: 'Forge server-side spells with Node.',
+    },
+  ];  
+
 
   return (
-    <div className='pt-20 sm:pt-24 pb-6 sm:pb-10 px-5 sm:px-32 bg-[#f7f7f7] grid grid-cols-1 sm:grid-cols-3 gap-3'>
-      <div className='col-span-1'>
+    <div className='pt-20 sm:pt-24 pb-6 sm:pb-10 px-5 sm:px-32 bg-[#f7f7f7] grid grid-cols-1 lg:grid-cols-3 gap-3'>
+      <div className='col-span-1 w-full'>
         <UserProfile apiUrl={config.apiUrl} username={userData.user.username} email={userData.user.email} domain={userData.domain} experience={userData.experience} level={userData.predicted_proficiency} />
       </div>
-      <div className='col-span-1 sm:col-span-2 sm:row-span-2'>
+      <div className='col-span-1 lg:col-span-2 lg:row-span-2 w-full'>
         <SkillsChart apiUrl={config.apiUrl} userData={userData}/>
       </div>
       <div className='col-span-1 w-full'>
         <UserJobRecommendation apiUrl={config.apiUrl} job1={userData.predicted_job_role} match={userData.predicted_average_score} domain={userData.domain} />
       </div>
-      <div className='col-span-1 sm:col-span-3 w-full'>
+      <div className='col-span-1 lg:col-span-3 w-full'>
+        {/* <SkillQuestBoard skills={learningSkills} /> */}
         <GithubAnalyser/>
       </div>
-      
-      {/* <SkillRating apiUrl={config.apiUrl} userData={userData}/> */}
-      
+          
     </div>
   )
 }

@@ -4,7 +4,7 @@ import React from "react";
 
 function UserProfile({ username, email, domain, experience, level}) {
   return (
-    <div className="w-full max-w-md bg-white rounded-md sm:rounded-xl shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-md sm:rounded-xl shadow-lg overflow-hidden">
       <div className="bg-white rounded-xl shadow-lg p-6">
           <div className="space-y-4">
             <div className="flex items-center space-x-3 pb-4 border-b border-gray-200">

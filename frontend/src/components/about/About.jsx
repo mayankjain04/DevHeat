@@ -183,7 +183,7 @@ function About() {
       </section>
 
       {/* Contact */}
-      <section className="mt-20 text-center text-sm text-gray-600">
+      <section className="mt-20 text-center text-base text-gray-600">
         <p>For inquiries or collaborations:</p>
         <p className="text-blue-500 underline">dm.piyushjain@gmail.com</p>
         <p className="text-blue-500 underline">dm.mayankjain@gmail.com</p>

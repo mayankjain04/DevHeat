@@ -9,7 +9,7 @@ function Playlist() {
     const [playlists, setPlaylists] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [query, setQuery] = useState('java');
+    const [query, setQuery] = useState('Node js');
     const [pageToken, setPageToken] = useState(null);
     const [nextPageToken, setNextPageToken] = useState(null);
     const [language, setLanguage] = useState('en');
@@ -129,7 +129,7 @@ function Playlist() {
                     : `Showing results for "${query}".`}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 mx-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 mx-4">
                 {playlists.map((playlist, index) => (
                     <PlaylistCard
                         key={index}

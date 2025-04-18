@@ -106,17 +106,33 @@ def run_recommendation(user_skill_percentages):
     recommended_skills = recommend_skills(model, user_skill_percentages.keys(), skill_classes, target_classes)
     return recommended_skills
 
-# Example usage
-user_skill_percentages = {
-    "HTML": 65,
-    "CSS": 87,
-    "JavaScript": 89,
-    "React": 87,
-    "Vue.js": 98,
-    "Angular": 76,
-    "Bootstrap": 90,
-    "TailwindCSS": 87
-}
+if __name__ == "__main__":
+    print('Direct execution in terminal...\n')
+    # Example usage
+    user_skill_percentages = { 
+        "HTML": 65,
+        "CSS": 87,
+        "JavaScript": 89,
+        "React": 87,
+        "Vue.js": 98,
+        "Angular": 76,
+        "Bootstrap": 90,
+        "TailwindCSS": 87
+    }
 
-recommended_skills = run_recommendation(user_skill_percentages)
-print("Recommended Skills:", recommended_skills)
+    recommended_skills = run_recommendation(user_skill_percentages)
+    print("Recommended Skills:", recommended_skills)
+
+    # Example usage 2
+    user_skill_percentages = { 
+        "Python": 65,
+        "Java": 87,
+        "MongoDB": 89,
+        "Data Analysis": 87,
+        "Machine Learning": 98,
+        "Tableau": 76,
+        "Excel": 87
+    }
+
+    recommended_skills = run_recommendation(user_skill_percentages)
+    print("Recommended Skills:", recommended_skills)

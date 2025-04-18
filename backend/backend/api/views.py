@@ -7,6 +7,7 @@ from rest_framework import status, generics
 import sys
 import os
 import requests
+import time
 
 from .serializers import RegisterSerializer, UserDataSerializer, UserDataPredictionSerializer, AllUserDataSerializer
 from .models import UserData
@@ -20,6 +21,7 @@ sys.path.append(os.path.join(root_dir, 'ml_models'))
 
 # Now we can import from ml_models
 from mymodels import assessment_model
+# from ml_models.nextskill import nextskill
 
 YT_API_KEY = os.environ.get("YT_API_KEY")
 ADZUNA_API_KEY = os.environ.get("ADZUNA_API_KEY")
@@ -108,7 +110,8 @@ class AssessmentView(APIView):
         # Return validation errors if invalid
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-import time  # Add at the top if not already
+class NextSkillView(APIView):
+    pass
 
 class FindJobsView(APIView):
     permission_classes = [IsAuthenticated]
@@ -116,9 +119,9 @@ class FindJobsView(APIView):
     def post(self, request):
         try:
             user_domain_obj = UserData.objects.filter(user=request.user).last()
-            user_domain = user_domain_obj.domain if user_domain_obj else "web developer"
+            user_domain = user_domain_obj.domain if user_domain_obj else "Web Development"
         except Exception as e:
-            user_domain = "web developer"
+            user_domain = "Web Development"
 
         sort_by = request.data.get("sort_by", "")
         what = request.data.get("what", user_domain)
@@ -187,12 +190,14 @@ class FindPlaylist(APIView):
 
         url = (
             f"https://www.googleapis.com/youtube/v3/search"
-            f"?part=snippet&q={query}&type=playlist"
-            f"&maxResults=16&order=relevance&relevanceLanguage={language}"
+            f"?part=snippet&q={query}+skill+development&type=playlist"
+            f"&maxResults=9&order=relevance&relevanceLanguage={language}"
             f"&key={YT_API_KEY}"
         )
         if page_token:
             url += f"&pageToken={page_token}"
+
+        print(url)
 
         start_time = time.time()
         try:
@@ -224,6 +229,7 @@ class FindPlaylist(APIView):
 
             return Response({
                 "results": playlists,
+                "query":query,
                 "nextPageToken": data.get("nextPageToken", None),
                 "responseTime": elapsed
             }, status=status.HTTP_200_OK)

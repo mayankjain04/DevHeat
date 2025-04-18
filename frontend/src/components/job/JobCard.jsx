@@ -5,7 +5,7 @@ import { faBriefcase, faDollarSign } from "@fortawesome/free-solid-svg-icons";
 function JobCard({ title, company, salaryMin, salaryMax, jobdesc, location }) {
   return (
     <div className="w-full">
-      <div className="bg-white w-full px-5 sm:px-7 py-4 rounded-xl cursor-pointer shadow-md hover:scale-[1.02] transition-all duration-200 h-60 flex flex-col justify-between">
+      <div className="bg-white w-full px-5 sm:px-7 py-4 rounded-xl cursor-pointer shadow-md hover:scale-[1.02] transition-all duration-200 h-60 flex flex-col justify-around">
         {/* Header */}
         <div>
           <div className="flex justify-between items-start mb-3">
